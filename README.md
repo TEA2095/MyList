@@ -61,4 +61,40 @@ public class MyList {
         }
         return iter;
      }
+     
+     public String toString(){
+        String result = "[";
+        if (this.begin !=null){
+            Node iter = this.begin;
+            while (iter.hasNext()){
+                result += iter.toString() + ",";
+                iter = iter.getNext();
+            }
+        }
+        result += "]";
+        return result;
+    }
+    
+    public void swap(int firstPos, int secondPos) { //меняется местами пара чисел массива
+        Node preFirst = indexAt(firstPos - 1);
+        Node first = indexAt(firstPos);
+        Node aftFirst = indexAt(firstPos + 1);
+        Node preSecond = indexAt(secondPos - 1);
+        Node second = indexAt(secondPos);
+        Node aftSecond = indexAt(secondPos + 1);
+        if (preFirst != null) {
+            preFirst.setNext(second);
+        }
+        else {
+            this.begin = second; 
+        }
+        first.setNext(aftSecond);
+        if (preSecond == first) {
+            second.setNext(first);
+        }
+        else {
+            second.setNext(aftFirst);
+            preSecond.setNext(first);
+   }
+        
 
