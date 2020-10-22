@@ -42,3 +42,23 @@ public class MyList {
         }
         
     }
+    
+     private Node begin;
+    private long counter;
+    
+    public MyList(){
+        this.begin = null;
+        this.counter = 0;
+        }
+        
+    public Node end() {
+        if (this.begin == null)
+            return null;
+        
+    Node iter = this.begin;
+        while (iter.hasNext()){
+            iter = iter.getNext(); //возвращается ссылка
+        }
+        return iter;
+     }
+
