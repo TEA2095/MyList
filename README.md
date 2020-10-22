@@ -96,5 +96,20 @@ public class MyList {
             second.setNext(aftFirst);
             preSecond.setNext(first);
    }
+   
+   public Node indexAt(int index){
+        Node iter = this.begin;
+        if (0 <= index && index <= this.length) { //проверяется, существует ли индекс в массиве
+            for (int i = 1; i < index; ++i) { //цикл доводится до числа с индексом 
+                iter = iter.getNext(); //вызывается следующий элемент
+            }
+            return iter; //возвращается элемент, а не его значение
+        }
+        else {
+            return null; //выводится null
+        }
+    }
+}
+
         
 
